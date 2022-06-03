@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movies Prediction</title>
+
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+    <script src="//code.jquery.com/jquery.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse" style="border-radius:0%; margin: 0px;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Movie Prediction</a>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active">
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="prediction">Prediction</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="container-fluid" style="background-image: url('/static/images/wallpaper.jpg'); height: 97%;">
+        <center>
+            <div class="container" style="height: 94vh;">
+                
+                <form action="" method="POST" role="form" style="margin-top: 20%;">
+                    <legend>Movie Prediction</legend>
+                
+                    <div class="form-group">
+                        <label for="">Movie Name</label>
+                        
+                        <select name="movie" id="input" class="form-control" required="required">
+                            {% for x in data %}
+                                <option value="{{x}}">{{x}}</option>
+                            {% endfor %}
+                        </select>
+                        
+                    </div>
+                
+                    
+                
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                <br />
+                <br />
+                {% if res %}
+                    
+                    <div class="alert alert-info">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <strong>Predicted: {{res}}</strong> 
+                    </div>
+                    
+                {% endif %}
+            </div>
+        </center>
+    </div>
+
+</body>
+
+</html>
